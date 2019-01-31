@@ -4,7 +4,7 @@ steps:
   - script: docker run --rm --privileged multiarch/qemu-user-static:register --reset
     displayName: 'Register Docker QEMU'
 
-- task: docker@0
+- task: docker@1
   displayName: Build
   inputs:
     action: 'Run an image'
@@ -16,7 +16,7 @@ steps:
     workDir: '/build'
     containerCommand: '/src/ci/build.sh'
     detached: false
-- task: docker@0
+- task: docker@1
   displayName: Test
   inputs:
     action: 'Run an image'
